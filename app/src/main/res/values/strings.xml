@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">DataBindingDrinks</string>
+
+    <!-- dialog tags -->
+    <string name="dialog_choose_quantity">Choose Quantity</string>
+
+    <!-- fragment tags -->
+    <string name="fragment_main">Main</string>
+    <string name="fragment_view_product">View Product</string>
+    <string name="fragment_view_cart">View Cart</string>
+
+    <!-- Intent keys -->
+    <string name="intent_product">intent_product</string>
+
+    <!-- Strings -->
+    <string name="dialog_quantity_title">Qty: </string>
+    <string name="cart_subtotal">Cart subtotal</string>
+    <string name="proceed_to_checkout">Proceed to Checkout</string>
+
+
+    <string name="slide_1_title">Hello There!</string>
+    <string name="slide_1_desc">The easiest way to order drinks from your favourite liquor store!</string>
+
+    <string name="slide_2_title">Schedule Delivery</string>
+    <string name="slide_2_desc">Schedule your delivery and surprise your family and friends </string>
+
+    <string name="slide_3_title">Great Discounts</string>
+    <string name="slide_3_desc">Best Discount on Every Order!</string>
+
+    <string name="slide_4_title">Fastest Delivery</string>
+    <string name="slide_4_desc">Fastest Delivery compared to any other Drinks App</string>
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+    <string name="title_activity_home">Home</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="end">SIGN UP</string>
+    <string name="start">SIGN IN</string>
+    <string name="SignUp">signup</string>
+    <string name="slogan">No matter Where You Are We Deliver And You Drink And Enjoy .</string>
+
+</resources>

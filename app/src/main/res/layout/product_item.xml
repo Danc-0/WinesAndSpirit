@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.example.databindingdrinks.util.BigDecimalUtil" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="product"
+            type="com.example.databindingdrinks.models.Product" />
+
+        <variable
+            name="iMainActivity"
+            type="com.example.databindingdrinks.IMainActivity" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/item_container"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/grey_border"
+        android:onClick="@{() -> iMainActivity.inflateViewProductFragment(product)}"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:scaleType="fitCenter"
+                app:imageUrl="@{product.image}" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            android:padding="2dp">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{product.title}"
+                android:textColor="@color/Black"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/decription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{product.description}"
+                android:textColor="@color/Black"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="14sp"
+                    android:layout_height="14sp"
+                    android:src="@drawable/ic_dollor_sign_red" />
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{product.hasSalePrice() ?  BigDecimalUtil.getValue(product.sale_price) : BigDecimalUtil.getValue(product.price)}"
+                    android:textColor="@color/red2"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/original_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/strike_through"
+                    android:text="@{BigDecimalUtil.getValue(product.price)}"
+                    android:textColor="@color/DarkGrey"
+                    android:textSize="10sp"
+                    android:visibility="@{product.hasSalePrice() ? View.VISIBLE  : View.GONE}" />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:orientation="horizontal">
+
+                <RatingBar
+                    android:id="@+id/rating"
+                    style="?attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:rating="@{BigDecimalUtil.getFloat(product.rating)}"
+                    android:scaleX="1.2"
+                    android:scaleY="1.2"
+                    android:theme="@style/Widget.AppCompat.RatingBar" />
+
+                <TextView
+                    android:id="@+id/num_ratings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:text="@{product.getNumberRatingsString()}"
+                    android:textColor="@color/DarkGrey"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

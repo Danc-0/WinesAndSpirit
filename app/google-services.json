@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "422434801632",
+    "firebase_url": "https://databindinddrinks.firebaseio.com",
+    "project_id": "databindinddrinks",
+    "storage_bucket": "databindinddrinks.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:422434801632:android:10d6ccae894d72e7d5cd85",
+        "android_client_info": {
+          "package_name": "com.example.databindingdrinks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "422434801632-1b53vor3h5oq15egc9aqls8upck32jkf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJkICXQF9KV1jdi-spFyE0DXWVaZIRlSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "422434801632-1b53vor3h5oq15egc9aqls8upck32jkf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

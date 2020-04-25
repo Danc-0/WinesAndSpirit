@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.example.databindingdrinks.util.BigDecimalUtil" />
+
+        <import type="com.example.databindingdrinks.util.StringUtil" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="productView"
+            type="com.example.databindingdrinks.models.ProductViewModel" />
+
+        <variable
+            name="iMainActivity"
+            type="com.example.databindingdrinks.IMainActivity" />
+
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/White">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:visibility="@{productView.imageVisibility ? View.GONE : View.VISIBLE}" />
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/container_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/White"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:visibility="@{productView.imageVisibility ? View.VISIBLE : View.INVISIBLE}">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp">
+
+
+                <TextView
+                    android:id="@+id/num_ratings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="@{productView.product.getNumberRatingsString()}"
+                    android:textColor="@color/DarkGrey"
+                    android:textSize="10sp" />
+
+
+                <!--<RatingBar-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--style="?attr/ratingBarStyleSmall"-->
+                <!--android:theme="@style/RatingBar"-->
+                <!--android:scaleX="1.2"-->
+                <!--android:scaleY="1.2"-->
+                <!--android:numStars="5"-->
+                <!--android:rating="@{BigDecimalUtil.getFloat(productView.product.rating)}"-->
+                <!--android:id="@+id/rating"-->
+                <!--android:isIndicator="true"-->
+                <!--android:layout_toLeftOf="@+id/num_ratings"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:layout_centerVertical="true"/>-->
+
+
+                <RatingBar
+                    android:id="@+id/rating"
+                    style="?attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/num_ratings"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:rating="@{BigDecimalUtil.getFloat(productView.product.rating)}"
+                    android:scaleX="1.2"
+                    android:scaleY="1.2"
+                    android:theme="@style/Widget.AppCompat.RatingBar" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@{productView.product.title}"
+                android:textColor="@color/Black"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp">
+
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    app:imageResource="@{productView.product.image}"
+                    app:requestListener="@{productView.customRequestListener}" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/image"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@{productView.product.description}"
+                    android:textColor="@color/Black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="14sp"
+                    android:layout_height="14sp"
+                    android:src="@drawable/ic_dollor_sign_red" />
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{productView.product.hasSalePrice() ?  BigDecimalUtil.getValue(productView.product.sale_price) : BigDecimalUtil.getValue(productView.product.price)}"
+                    android:textColor="@color/red2"
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/original_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/strike_through"
+                    android:text="@{BigDecimalUtil.getValue(productView.product.price)}"
+                    android:textColor="@color/DarkGrey"
+                    android:textSize="10sp"
+                    android:visibility="@{productView.product.hasSalePrice() ? View.VISIBLE  : View.GONE}" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/quantity_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:background="@drawable/grey_rounded_button"
+                android:onClick="@{() -> iMainActivity.showQuantityDialog()}"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{StringUtil.getQuantityString(productView.quantity)}"
+                    android:textColor="@color/Black"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/quantity"
+                    android:src="@drawable/ic_up_down_arrows" />
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/add_to_cart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:background="@drawable/orange_rounded_button"
+                android:onClick="@{() -> iMainActivity.addToCart(productView.product, productView.quantity)}"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/text_add_to_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="Add to Cart"
+                    android:textColor="@color/Black"
+                    android:textSize="14sp" />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
