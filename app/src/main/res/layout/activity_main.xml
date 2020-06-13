@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <data>
-        <import type="com.example.databindingdrinks.util.StringUtil"/>
-        <import type="android.view.View"/>
+
+        <import type="com.example.databindingdrinks.util.StringUtil" />
+
+        <import type="android.view.View" />
+
         <variable
             name="cartView"
-            type="com.example.databindingdrinks.models.CartViewModel"/>
+            type="com.example.databindingdrinks.models.CartViewModel" />
     </data>
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -22,9 +26,9 @@
 
             <androidx.appcompat.widget.Toolbar
                 xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/toolbar"
                 android:background="@color/blue4"
                 android:elevation="10dp"
                 app:contentInsetStart="0dp">
@@ -38,44 +42,43 @@
                         android:layout_width="match_parent"
                         android:layout_height="?attr/actionBarSize">
 
-                        <LinearLayout
-                            android:layout_width="40dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentEnd="true"
-                            android:id="@+id/cart"
-                            android:layout_centerVertical="true"
-                            android:orientation="vertical"
-                            android:layout_marginRight="8dp"
-                            android:layout_marginEnd="8dp">
+                                                <LinearLayout
+                                                    android:layout_width="40dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_alignParentRight="true"
+                                                    android:layout_alignParentEnd="true"
+                                                    android:id="@+id/cart"
+                                                    android:layout_centerVertical="true"
+                                                    android:orientation="vertical"
+                                                    android:layout_marginRight="8dp"
+                                                    android:layout_marginEnd="8dp">
 
-                            <TextView
-                                android:layout_width="13dp"
-                                android:layout_height="13dp"
-                                android:id="@+id/item_count"
-                                android:text="@{StringUtil.convertIntToString(cartView.cart.size())}"
-                                android:textSize="10sp"
-                                android:gravity="center"
-                                android:textColor="@color/White"
-                                android:layout_gravity="center_horizontal"/>
+                                                    <TextView
+                                                        android:layout_width="13dp"
+                                                        android:layout_height="13dp"
+                                                        android:id="@+id/item_count"
+                                                        android:text="@{StringUtil.convertIntToString(cartView.cart.size())}"
+                                                        android:textSize="10sp"
+                                                        android:gravity="center"
+                                                        android:textColor="@color/White"
+                                                        android:layout_gravity="center_horizontal"/>
 
-
-                            <ImageView
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
-                                android:src="@drawable/ic_cart_white"
-                                android:id="@+id/cart_image"
-                                android:layout_gravity="center_horizontal"/>
-                        </LinearLayout>
+                                                    <ImageView
+                                                        android:layout_width="25dp"
+                                                        android:layout_height="25dp"
+                                                        android:src="@drawable/ic_cart_white"
+                                                        android:id="@+id/cart_image"
+                                                        android:layout_gravity="center_horizontal"/>
+                                                </LinearLayout>
 
                     </RelativeLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
                         android:background="@color/White"
                         android:orientation="vertical"
+                        android:padding="10dp"
                         android:visibility="@{cartView.cartVisible ? View.VISIBLE : View.GONE}">
 
                         <LinearLayout
@@ -87,45 +90,46 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@{@string/cart_subtotal}"
-                                android:textSize="16sp"
-                                android:textColor="@color/Black"/>
+                                android:textColor="@color/Black"
+                                android:textSize="16sp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@{cartView.getProductQuantitiesString()}"
-                                android:textSize="16sp"
-                                android:textColor="@color/Black"/>
+                                android:textColor="@color/Black"
+                                android:textSize="16sp" />
 
 
                             <TextView
+                                android:id="@+id/amount_total"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="5dp"
+                                android:layout_marginStart="5dp"
                                 android:text="@{cartView.getTotalCostString()}"
-                                android:textStyle="bold"
+                                android:textColor="@color/red2"
                                 android:textSize="16sp"
-                                android:textColor="@color/red2"/>
+                                android:textStyle="bold" />
 
                         </LinearLayout>
 
                         <RelativeLayout
+                            android:id="@+id/proceed_to_checkout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="12dp"
                             android:layout_marginTop="10dp"
                             android:background="@drawable/orange_rounded_button"
-                            android:id="@+id/proceed_to_checkout">
+                            android:padding="12dp">
 
                             <TextView
+                                android:id="@+id/text_add_to_cart"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="14sp"
-                                android:textColor="@color/Black"
-                                android:text="@{@string/proceed_to_checkout}"
-                                android:id="@+id/text_add_to_cart"
                                 android:layout_centerHorizontal="true"
-                                android:layout_centerVertical="true"/>
+                                android:layout_centerVertical="true"
+                                android:text="@{@string/proceed_to_checkout}"
+                                android:textColor="@color/Black"
+                                android:textSize="14sp" />
 
 
                         </RelativeLayout>
@@ -141,24 +145,91 @@
                 android:layout_height="match_parent">
 
                 <FrameLayout
+                    android:id="@+id/main_container"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/main_container">
+                    android:layout_height="match_parent">
 
                 </FrameLayout>
 
                 <ProgressBar
+                    android:id="@+id/progress_bar"
+                    style="?android:attr/progressBarStyle"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    style="?android:attr/progressBarStyle"
                     android:layout_centerInParent="true"
-                    android:id="@+id/progress_bar"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
             </RelativeLayout>
 
         </LinearLayout>
 
+<!--                <TextView-->
+<!--                    android:layout_width="13dp"-->
+<!--                    android:layout_height="13dp"-->
+<!--                    android:text="@{StringUtil.convertIntToString(cartView.cart.size())}"-->
+<!--                    android:textSize="10sp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:textColor="@color/White"-->
+<!--                    android:layout_gravity="bottom|end"/>-->
+
+
+<!--                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                    android:layout_width="60dp"-->
+<!--                    android:layout_height="60dp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:src="@drawable/ic_cart_white"-->
+<!--                    android:layout_gravity="bottom|right"/>-->
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="vertical"-->
+        <!--            android:layout_marginRight="8dp"-->
+        <!--            android:layout_marginEnd="8dp"-->
+        <!--            android:layout_marginBottom="5dp"-->
+        <!--            android:layout_gravity="bottom|end">-->
+
+        <!--            <TextView-->
+        <!--                android:layout_width="13dp"-->
+        <!--                android:layout_height="13dp"-->
+        <!--                android:text="@{StringUtil.convertIntToString(cartView.cart.size())}"-->
+        <!--                android:textSize="10sp"-->
+        <!--                android:layout_marginStart="20dp"-->
+        <!--                android:gravity="center"-->
+        <!--                android:textColor="@color/White"-->
+        <!--                android:layout_gravity="center_horizontal"/>-->
+
+
+        <!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+        <!--                android:layout_width="55dp"-->
+        <!--                android:layout_height="55dp"-->
+        <!--                android:src="@drawable/ic_cart_white"-->
+        <!--                android:id="@+id/cart_image"-->
+        <!--                android:layout_gravity="bottom|end"/>-->
+        <!--        </LinearLayout>-->
+
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/item_count"-->
+<!--                android:layout_width="13dp"-->
+<!--                android:layout_height="13dp"-->
+<!--                android:layout_gravity="bottom|end"-->
+<!--                android:layout_marginBottom="60dp"-->
+<!--                android:textSize="13sp"-->
+<!--                android:text="@{StringUtil.convertIntToString(cartView.cart.size())}"-->
+<!--                android:textColor="@color/Black" />-->
+
+<!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                android:id="@+id/cart_image"-->
+<!--                android:layout_width="55dp"-->
+<!--                android:layout_height="55dp"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:layout_marginBottom="5dp"-->
+<!--                android:layout_gravity="bottom|end"-->
+<!--                android:src="@drawable/ic_cart_white" />-->
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 </layout>
 

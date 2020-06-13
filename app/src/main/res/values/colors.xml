@@ -1,69 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">@color/blue4</color>
-    <color name="colorPrimaryDark">@color/blue5</color>
-    <color name="colorAccent">#FF4081</color>
+  <color name="colorPrimary">@color/blue4</color>
+  <color name="colorPrimaryDark">@color/blue5</color>
+  <color name="colorAccent">#FF4081</color>
 
-    <color name="red1">#af0a0a</color>
-    <color name="red2">#c40909</color>
-    <color name="red3">#e50909</color>
-    <color name="blue1">#66a3ff</color>
-    <color name="blue2">#0033cc</color>
-    <color name="linkBlue">#4d94ff</color>
-    <color name="blue3">#00c4cc</color>
-    <color name="blue4">#00aab1</color>
-    <color name="blue5">#007f85</color>
-    <color name="blue6">#00494d</color>
-    <color name="White">#fff</color>
-    <color name="darkGrey">#a6a6a6 </color>
-    <color name="Grey">#c3c3c3 </color>
-    <color name="mediumLightGrey">#d9d9d9 </color>
-    <color name="lightGrey">#f2f2f2 </color>
-    <color name="DarkGrey">#4d4d4d </color>
-    <color name="Black">#000 </color>
-    <color name="RatingBar">#ff9900</color>
+  <color name="red1">#af0a0a</color>
+  <color name="green">#008000</color>
+  <color name="red2">#c40909</color>
+  <color name="red3">#e50909</color>
+  <color name="blue1">#66a3ff</color>
+  <color name="blue2">#0033cc</color>
+  <color name="linkBlue">#4d94ff</color>
+  <color name="blue3">#00c4cc</color>
+  <color name="blue4">#00aab1</color>
+  <color name="blue5">#007f85</color>
+  <color name="blue6">#00494d</color>
+  <color name="White">#fff</color>
+  <color name="darkGrey">#a6a6a6 </color>
+  <color name="Grey">#c3c3c3 </color>
+  <color name="mediumLightGrey">#d9d9d9 </color>
+  <color name="lightGrey">#f2f2f2 </color>
+  <color name="DarkGrey">#4d4d4d </color>
+  <color name="Black">#000 </color>
+  <color name="RatingBar">#ff9900</color>
 
-    <color name="lightOrange">#ffebcc</color>
-    <color name="mediumLightOrange">#ffcc80</color>
-    <color name="orange">#ffad33</color>
-    <color name="darkOrange">#ff9900</color>
+  <color name="lightOrange">#ffebcc</color>
+  <color name="mediumLightOrange">#ffcc80</color>
+  <color name="orange">#ffad33</color>
+  <color name="darkOrange">#ff9900</color>
 
-<!--    <color name="colorPrimary">#004d40</color>-->
-<!--    <color name="colorPrimaryDark">#00251a</color>-->
-<!--    <color name="colorAccent">#39796b</color>-->
+  <!--    <color name="colorPrimary">#004d40</color>-->
+  <!--    <color name="colorPrimaryDark">#00251a</color>-->
+  <!--    <color name="colorAccent">#39796b</color>-->
 
-    <color name="overlayBackground">#7f333639</color>
-    <color name="overlayActionBar">#0e0d0e</color>
+  <color name="overlayBackground">#7f333639</color>
+  <color name="overlayActionBar">#0e0d0e</color>
 
-    <!-- Screens background color-->
-    <color name="bg_screen1">#f64c73</color>
-    <color name="bg_screen2">#20d2bb</color>
-    <color name="bg_screen3">#3395ff</color>
-    <color name="bg_screen4">#c873f4</color>
+  <!-- Screens background color-->
+  <color name="bg_screen1">#f64c73</color>
+  <color name="bg_screen2">#20d2bb</color>
+  <color name="bg_screen3">#3395ff</color>
+  <color name="bg_screen4">#c873f4</color>
 
-    <!-- dots inactive colors -->
-    <color name="dot_dark_screen1">#d1395c</color>
-    <color name="dot_dark_screen2">#14a895</color>
-    <color name="dot_dark_screen3">#2278d4</color>
-    <color name="dot_dark_screen4">#a854d4</color>
+  <!-- dots inactive colors -->
+  <color name="dot_dark_screen1">#d1395c</color>
+  <color name="dot_dark_screen2">#14a895</color>
+  <color name="dot_dark_screen3">#2278d4</color>
+  <color name="dot_dark_screen4">#a854d4</color>
 
-    <!-- dots active colors -->
-    <color name="dot_light_screen1">#f98da5</color>
-    <color name="dot_light_screen2">#8cf9eb</color>
-    <color name="dot_light_screen3">#93c6fd</color>
-    <color name="dot_light_screen4">#e4b5fc</color>
+  <!-- dots active colors -->
+  <color name="dot_light_screen1">#f98da5</color>
+  <color name="dot_light_screen2">#8cf9eb</color>
+  <color name="dot_light_screen3">#93c6fd</color>
+  <color name="dot_light_screen4">#e4b5fc</color>
 
-    <array name="array_dot_active">
-        <item>@color/dot_light_screen1</item>
-        <item>@color/dot_light_screen2</item>
-        <item>@color/dot_light_screen3</item>
-        <item>@color/dot_light_screen4</item>
-    </array>
+  <array name="array_dot_active">
+    <item>@color/dot_light_screen1</item>
+    <item>@color/dot_light_screen2</item>
+    <item>@color/dot_light_screen3</item>
+    <item>@color/dot_light_screen4</item>
+  </array>
 
-    <array name="array_dot_inactive">
-        <item>@color/dot_dark_screen1</item>
-        <item>@color/dot_dark_screen2</item>
-        <item>@color/dot_dark_screen3</item>
-        <item>@color/dot_dark_screen4</item>
-    </array>
+  <array name="array_dot_inactive">
+    <item>@color/dot_dark_screen1</item>
+    <item>@color/dot_dark_screen2</item>
+    <item>@color/dot_dark_screen3</item>
+    <item>@color/dot_dark_screen4</item>
+  </array>
 </resources>

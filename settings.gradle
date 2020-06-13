@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name='DataBindingDrinks'
+rootProject.name='Wines And Spirit'

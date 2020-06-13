@@ -7,6 +7,8 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
@@ -21,6 +23,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.example.databindingdrinks.Mpesa.Mpesa2Activity;
+import com.example.databindingdrinks.Mpesa.MpesaFragment;
 import com.example.databindingdrinks.WelcomeAndAuth.SignIn;
 import com.example.databindingdrinks.databinding.ActivityMainBinding;
 import com.example.databindingdrinks.models.CartItem;
@@ -38,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
     //data binding
     ActivityMainBinding mBinding;
 
-
     //vars
     private boolean mClickToExit = false;
     private Runnable mCheckoutRunnable;
@@ -52,13 +55,16 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
         super.onCreate(savedInstanceState);
 
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        mBinding.cart.setOnTouchListener(new CartTouchListener());
+        mBinding.cartImage.setOnTouchListener(new CartTouchListener());
         mBinding.proceedToCheckout.setOnClickListener(mCheckOutListener);
 
         setupFirebaseAuth();
         getShoppingCart();
         init();
+
     }
+
+
 
     private void init() {
         MainFragment fragment = new MainFragment();
@@ -96,7 +102,6 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
         Log.d(TAG, "checkout: checking out.");
 
         mBinding.progressBar.setVisibility(View.VISIBLE);
-
         mCheckoutHandler = new Handler();
         mCheckoutRunnable = new Runnable() {
             @Override
@@ -112,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
             }
         };
         mCheckoutRunnable.run();
+
     }
 
     private void emptyCart() {
@@ -127,17 +133,17 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
 
         editor.remove(PreferenceKeys.shopping_cart);
         editor.commit();
-        Toast.makeText(this, "thanks for shopping!", Toast.LENGTH_SHORT).show();
         removeViewCartFragment();
         getShoppingCart();
-        launchPurchaseFragment();
+
     }
 
     private void launchPurchaseFragment() {
-        PurchaseFragment nextFrag= new PurchaseFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.main_container, nextFrag, "findThisFragment");
-        transaction.commit();
+        String Amount = mBinding.amountTotal.getText().toString();
+        Intent intent = new Intent(MainActivity.this, Mpesa2Activity.class);
+        intent.putExtra("Amount", Amount);
+        startActivity(intent);
+
     }
 
     public View.OnClickListener mCheckOutListener = new View.OnClickListener() {
@@ -167,6 +173,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
     }
 
     public void removeViewCartFragment() {
+        launchPurchaseFragment();
         getSupportFragmentManager().popBackStack();
         ViewCartFragment fragment = (ViewCartFragment) getSupportFragmentManager().findFragmentByTag(getString(R.string.fragment_view_cart));
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -212,6 +219,13 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
 
     @Override
     public void showQuantityDialog() {
+        Log.d(TAG, "showQuantityDialog: showing Quantity Dialog.");
+        ChooseQuantityDialog dialog = new ChooseQuantityDialog();
+        dialog.show(getSupportFragmentManager(), getString(R.string.dialog_choose_quantity));
+    }
+
+    @Override
+    public void showProductQuantityVariations() {
         Log.d(TAG, "showQuantityDialog: showing Quantity Dialog.");
         ChooseQuantityDialog dialog = new ChooseQuantityDialog();
         dialog.show(getSupportFragmentManager(), getString(R.string.dialog_choose_quantity));
@@ -369,6 +383,33 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.LogOut:
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                mAuth.signOut();
+                return true;
+
+            case R.id.share:
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                String ShareBody = "Your body link here";
+                String ShareSub = "Your subject here";
+                shareIntent.putExtra(Intent.EXTRA_TEXT, ShareBody);
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, ShareSub);
+                startActivity(Intent.createChooser(shareIntent, "Share Using"));
+
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public void onStart() {

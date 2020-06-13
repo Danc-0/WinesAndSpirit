@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.example.databindingdrinks"
-        minSdkVersion 28
+        minSdkVersion 22
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -26,6 +26,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.firebase:firebase-messaging:20.2.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -38,18 +40,33 @@ dependencies {
     //design library for Coordinator Layout, Toolbars, Tabs, Navigation Bars, Floating Action Buttons..etc..
     implementation 'com.google.android.material:material:1.1.0'
 
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
     //Firebase
-    implementation 'com.google.firebase:firebase-database:19.2.1'
-    implementation 'com.google.firebase:firebase-auth:19.3.0'
+    implementation 'com.google.firebase:firebase-database:19.3.0'
+    implementation 'com.google.firebase:firebase-auth:19.3.1'
     implementation 'com.google.firebase:firebase-storage:19.1.1'
 
+    implementation 'com.googlecode.json-simple:json-simple:1.1'
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    implementation 'com.afollestad.material-dialogs:core:0.9.5.0'
+
     //circle images
-    implementation 'de.hdodenhof:circleimageview:3.0.2'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     implementation 'com.rengwuxian.materialedittext:library:2.1.4'
 
+    implementation "com.google.firebase:firebase-iid:20.2.0"
+
     //glide
-    implementation 'com.github.bumptech.glide:glide:4.4.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+
+    implementation 'com.androidstudy:daraja:1.0.2'
+    implementation 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+
+
 }
 apply plugin: 'com.google.gms.google-services'

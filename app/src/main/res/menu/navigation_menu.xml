@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+  <item android:id="@+id/account"
+      android:title="@string/my_account"/>
+  <item android:id="@+id/settings"
+      android:title="@string/settings"/>
+  <item android:id="@+id/mycart"
+      android:title="@string/my_cart"/>
+
+  <group android:checkableBehavior="single">
+    <item
+        android:id="@+id/SignUp"
+        android:title="@string/sign_up" />
+
+    <item
+        android:id="@+id/SignIn"
+        android:title="@string/sign_in" />
+
+    <item
+        android:id="@+id/LogOut"
+        android:title="@string/log_out" />
+  </group>
+
+  <item android:title="@string/communicate">
+    <menu>
+      <item
+          android:id="@+id/nav_whatsup"
+          android:title="@string/whatsapp_for_help" />
+
+      <item
+          android:id="@+id/nav_about"
+          android:title="@string/about_us" />
+
+      <item android:title="@string/share"
+          android:id="@+id/nav_share"
+          android:icon="@drawable/ic_share_black_24dp">
+      </item>
+
+    </menu>
+  </item>
+
+</menu>

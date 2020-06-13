@@ -79,7 +79,7 @@ public class ProductsAdapter extends  RecyclerView.Adapter<ProductsAdapter.Bindi
 
     public class BindingHolder extends RecyclerView.ViewHolder{
 
-//        ViewDataBinding binding;
+        //        ViewDataBinding binding;
         ProductItemBinding binding;
 
         public BindingHolder(View itemView) {

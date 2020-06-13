@@ -5,13 +5,12 @@ import android.util.Log;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
+import com.example.databindingdrinks.util.BigDecimalUtil;
+import com.example.databindingdrinks.util.Prices;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.example.databindingdrinks.BR;
-import com.example.databindingdrinks.util.BigDecimalUtil;
-import com.example.databindingdrinks.util.Prices;
 
 
 /**
@@ -72,7 +71,8 @@ public class CartViewModel extends BaseObservable {
             totalCost += cost;
         }
 
-        return "$" + BigDecimalUtil.getValue(new BigDecimal(totalCost));
+        return BigDecimalUtil.getValue(new BigDecimal(totalCost));
+//        return "Ksh." + BigDecimalUtil.getValue(new BigDecimal(totalCost));
     }
 
 }

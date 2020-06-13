@@ -4,79 +4,89 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/signin_bg"
+    android:background="@drawable/sign_up_background"
     tools:context=".WelcomeAndAuth.SignIn">
 
-    <LinearLayout
+  <LinearLayout
+      android:id="@+id/layoutInputs"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:layout_marginLeft="8dp"
+      android:layout_marginRight="8dp"
+      android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/edtPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:orientation="vertical">
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/sign_up_email"
+        android:hint="Email Address"
+        android:inputType="textEmailAddress"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/White"
+        app:met_floatingLabel="highlight"
+        app:met_maxCharacters="10"
+        app:met_primaryColor="@android:color/white"
+        app:met_singleLineEllipsis="true" />
 
-
-        <EditText
-            android:id="@+id/edtPhone"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="Phone Number"
-            android:inputType="textEmailAddress"
-            android:background="#ffffff"
-            android:layout_margin="8dp"
-            android:textColor="@android:color/black"
-            app:met_floatingLabel="highlight"
-            app:met_maxCharacters="10"
-            app:met_primaryColor="@android:color/white"
-            app:met_singleLineEllipsis="true" />
-
-        <EditText
-            android:id="@+id/edtPassword"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="Password"
-            android:background="#ffffff"
-            android:layout_margin="8dp"
-            android:inputType="textPassword"
-            android:textColor="@android:color/black"
-            app:met_floatingLabel="highlight"
-            app:met_maxCharacters="11"
-            app:met_primaryColor="@android:color/white"
-            app:met_singleLineEllipsis="true" />
-
-
-    </LinearLayout>
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/edtPassword"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:layout_centerInParent="true"/>
+        android:textColorHint="@color/White"
+        android:gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/sign_up_password"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColor="@android:color/white"
+        app:met_floatingLabel="highlight"
+        app:met_maxCharacters="11"
+        app:met_primaryColor="@android:color/white"
+        app:met_singleLineEllipsis="true" />
 
     <Button
-    android:id="@+id/btnSignIn"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:layout_centerHorizontal="true"
-    android:layout_marginEnd="20dp"
-    android:layout_marginBottom="100dp"
-    android:text="SignIn" />
-
-    <TextView
-        android:id="@+id/edtSignIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutInputs"
+        android:id="@+id/btnSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginEnd="20dp"
-        android:textColor="@color/colorAccent"
-        android:textAlignment="center"
-        android:background="#000"
-        android:textSize="15sp"
-        android:layout_marginBottom="80dp"
-        android:text="Not A Memeber?? SIGN UP" />
+        android:layout_marginEnd="8dp"
+        android:textSize="20sp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/bg_white_button"
+        android:text="Sign In"
+        android:textColor="@color/Black" />
+
+  </LinearLayout>
+
+  <ProgressBar
+      android:id="@+id/progressBar"
+      style="?android:attr/progressBarStyle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:visibility="invisible" />
+
+
+  <TextView
+      android:id="@+id/edtSignIn"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_centerHorizontal="true"
+      android:layout_marginEnd="20dp"
+      android:layout_marginBottom="210dp"
+      android:text="Not A Memeber?? SIGN UP"
+      android:textAlignment="center"
+      android:textColor="@color/White"
+      android:textSize="15sp" />
 
 </RelativeLayout>

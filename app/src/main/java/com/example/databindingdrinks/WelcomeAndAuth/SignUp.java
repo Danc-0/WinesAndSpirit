@@ -1,5 +1,6 @@
 package com.example.databindingdrinks.WelcomeAndAuth;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -27,6 +29,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -46,7 +51,7 @@ public class SignUp extends AppCompatActivity {
 
     private ProgressBar mProgressBar;
 
-    EditText edtEmail, edtName, edtPhone, edtPassword, edtConfirmPassword;
+    EditText edtEmail, edtName, phoneNumber, edtPassword, edtConfirmPassword;
     Button btnSignUp;
     TextView edtSignUp;
 
@@ -63,11 +68,13 @@ public class SignUp extends AppCompatActivity {
         mProgressBar = findViewById(R.id.mProgressBar);
         edtEmail = findViewById(R.id.edtEmail);
         edtName = findViewById(R.id.Name);
-        edtPhone = findViewById(R.id.edtPhone);
+        phoneNumber = findViewById(R.id.edtPhone);
+
         edtPassword = findViewById(R.id.edtPassword);
         edtConfirmPassword = findViewById(R.id.edtConfirmPassword);
         btnSignUp = findViewById(R.id.btnSignUp);
         edtSignUp = findViewById(R.id.edtSignUp);
+
 
         edtSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,15 +149,15 @@ public class SignUp extends AppCompatActivity {
         showDialog();
         String FirstName = edtName.getText().toString();
         String EmailAddress = edtEmail.getText().toString();
-        String PhoneNumber = edtPhone.getText().toString();
+        String phone = phoneNumber.getText().toString();
 
-        if (TextUtils.isEmpty(FirstName) || TextUtils.isEmpty(EmailAddress) || TextUtils.isEmpty(PhoneNumber)) {
+        if (TextUtils.isEmpty(FirstName) || TextUtils.isEmpty(EmailAddress) || TextUtils.isEmpty(phone)) {
             Toast.makeText(this, "Please Fill All Fields", Toast.LENGTH_SHORT).show();
         } else {
             HashMap ProfileDetails = new HashMap();
             ProfileDetails.put("FirstName", FirstName);
             ProfileDetails.put("EmailAddress", EmailAddress);
-            ProfileDetails.put("PhoneNumber", PhoneNumber);
+            ProfileDetails.put("DOB", phone);
 
             mDatabaseReference.child(uniqueID).updateChildren(ProfileDetails).addOnCompleteListener(new OnCompleteListener() {
                 @Override
@@ -169,7 +176,7 @@ public class SignUp extends AppCompatActivity {
     private void clear() {
         edtName.setText("");
         edtEmail.setText("");
-        edtPhone.setText("");
+        phoneNumber.setText("");
         edtPassword.setText("");
         edtConfirmPassword.setText("");
 

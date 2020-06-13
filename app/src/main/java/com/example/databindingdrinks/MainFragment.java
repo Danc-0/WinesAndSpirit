@@ -1,8 +1,12 @@
 package com.example.databindingdrinks;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -19,6 +23,7 @@ import com.example.databindingdrinks.adapters.ProductsAdapter;
 import com.example.databindingdrinks.databinding.FragmentMainBinding;
 import com.example.databindingdrinks.models.Product;
 import com.example.databindingdrinks.util.Products;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 /**
@@ -65,7 +70,36 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
             (mBinding.recyclervView.getAdapter()).notifyDataSetChanged();
             mBinding.swipeRefreshLayout.setRefreshing(false);
         }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_main, menu);
+        return;
     }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.LogOut:
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                mAuth.signOut();
+                return true;
+
+            case R.id.share:
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                String ShareBody = "Your body link here";
+                String ShareSub = "Your subject here";
+                shareIntent.putExtra(Intent.EXTRA_TEXT, ShareBody);
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, ShareSub);
+                startActivity(Intent.createChooser(shareIntent, "Share Using"));
+
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}
 
 
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DataBindingDrinks</string>
+    <string name="app_name">Wines And Spirit</string>
 
     <!-- dialog tags -->
     <string name="dialog_choose_quantity">Choose Quantity</string>
@@ -40,6 +40,8 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <string name="Open">Open navigation drawer</string>
+    <string name="Close">Close navigation drawer</string>
 
     <string name="title_activity_welcome">Home Screen</string>
     <string name="next">NEXT</string>
@@ -48,5 +50,55 @@
     <string name="start">SIGN IN</string>
     <string name="SignUp">signup</string>
     <string name="slogan">No matter Where You Are We Deliver And You Drink And Enjoy .</string>
+
+    <string name="buying_notification_title_template">Buying: %1$s</string>
+
+    <string name="buying_notification_placeholder_text_template">You said %1$s and lorem ipsum dolor
+        sit amet, consectetur adipiscing elit. Etiam non enim magna. Morbi dictum, velit vel semper
+        venenatis, magna odio volutpat velit, at ullamcorper nulla lacus sed turpis. Pellentesque
+        vitae metus elit, nec tincidunt tellus. Integer sed nisl sem, ullamcorper ornare lacus. Duis
+        ac mauris sed massa congue volutpat. Donec sed erat sit amet turpis viverra rhoncus sit amet
+        nec magna. Donec lacinia ligula at libero volutpat volutpat nec nec tortor.
+    </string>
+    <string name="share">Share</string>
+    <string name="enter_transaction_details_to_complete">Enter Transaction Details to Complete</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="enter_your_mobile_number">Enter your Mobile Number</string>
+    <string name="amount_to_pay">Amount to Pay</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="choose_your_pick_up_point">Choose Your Pick Up Point</string>
+    <string name="your_location_pick_up_point">Your Location/Pick Up Point</string>
+    <string name="click_to_pay">Click to Pay</string>
+    <string name="my_account">My Account</string>
+    <string name="settings">Settings</string>
+    <string name="my_cart">My Cart</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in">Sign In</string>
+    <string name="log_out">Log Out</string>
+    <string name="communicate">Communicate</string>
+    <string name="whatsapp_for_help">WhatsApp For Help</string>
+    <string name="about_us">About Us</string>
+
+
+    <string-array name="items_class">
+        <item>Cherika</item>
+        <item>Nyumba Tatu</item>
+        <item>Comrades</item>
+        <item>Amazing Grace</item>
+        <item>Ndoro</item>
+        <item>Karuga</item>
+        <item>Governor</item>
+        <item>Losogwa</item>
+    </string-array>
+
+    <string-array name="api">
+        <item>Lipa Na Mpesa</item>
+        <item>C2B Transact</item>
+        <item>Reversal</item>
+        <item>Account Balance</item>
+        <item>B2B</item>
+        <item>B2C</item>
+        <item>C2B Url Register</item>
+    </string-array>
 
 </resources>

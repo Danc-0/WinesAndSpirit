@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <variable
             name="iMainActivity"
             type="com.example.databindingdrinks.IMainActivity"/>
     </data>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:orientation="vertical"
-                  android:layout_width="170dp"
-                  android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/grey_rounded_background">
 
         <RelativeLayout
@@ -26,7 +26,7 @@
                 android:textStyle="bold"
                 android:text="@string/dialog_quantity_title"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginStart="10dp"/>
 
 
             <RelativeLayout
@@ -34,8 +34,8 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:id="@+id/close_dialog"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
                 android:layout_centerVertical="true">
 
                 <ImageView
@@ -43,7 +43,7 @@
                     android:layout_height="20dp"
                     android:src="@drawable/ic_x_black"
                     android:layout_centerInParent="true"
-                    />
+                    android:contentDescription="TODO" />
 
             </RelativeLayout>
 
