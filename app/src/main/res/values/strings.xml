@@ -78,6 +78,7 @@
     <string name="communicate">Communicate</string>
     <string name="whatsapp_for_help">WhatsApp For Help</string>
     <string name="about_us">About Us</string>
+    <string name="add_to_cart">Add to Cart</string>
 
 
     <string-array name="items_class">

@@ -60,20 +60,20 @@
             android:textSize="10sp" />
 
 
-        <!--<RatingBar-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--style="?attr/ratingBarStyleSmall"-->
-        <!--android:theme="@style/RatingBar"-->
-        <!--android:scaleX="1.2"-->
-        <!--android:scaleY="1.2"-->
-        <!--android:numStars="5"-->
-        <!--android:rating="@{BigDecimalUtil.getFloat(productView.product.rating)}"-->
-        <!--android:id="@+id/rating"-->
-        <!--android:isIndicator="true"-->
-        <!--android:layout_toLeftOf="@+id/num_ratings"-->
-        <!--android:layout_marginRight="10dp"-->
-        <!--android:layout_centerVertical="true"/>-->
+<!--        <RatingBar-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        style="?attr/ratingBarStyleSmall"-->
+<!--        android:theme="@style/RatingBar"-->
+<!--        android:scaleX="1.2"-->
+<!--        android:scaleY="1.2"-->
+<!--        android:numStars="5"-->
+<!--        android:rating="@{BigDecimalUtil.getFloat(productView.product.rating)}"-->
+<!--        android:id="@+id/rating"-->
+<!--        android:isIndicator="true"-->
+<!--        android:layout_toLeftOf="@+id/num_ratings"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:layout_centerVertical="true"/>-->
 
 
         <RatingBar
@@ -220,7 +220,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="Add to Cart"
+            android:text="@string/add_to_cart"
             android:textColor="@color/Black"
             android:textSize="14sp" />
 
