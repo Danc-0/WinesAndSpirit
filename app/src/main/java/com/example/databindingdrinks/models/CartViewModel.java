@@ -63,13 +63,13 @@ public class CartViewModel extends BaseObservable {
     }
 
     public String getTotalCostString(){
-        double totalCost = 0;
-        for(CartItem cartItem : cart){
-            int productQuantity = cartItem.getQuantity();
+            double totalCost = 0;
+            for(CartItem cartItem : cart){
+                int productQuantity = cartItem.getQuantity();
 
-            double cost = productQuantity * (Prices.getPrices().get(String.valueOf(cartItem.getProduct().getSerial_number()))).doubleValue();
-            totalCost += cost;
-        }
+//                double cost = productQuantity * (Prices.getPrices().get(String.valueOf(cartItem.getProduct().getSerial_number()))).doubleValue();
+//                totalCost += cost;
+            }
 
         return BigDecimalUtil.getValue(new BigDecimal(totalCost));
 //        return "Ksh." + BigDecimalUtil.getValue(new BigDecimal(totalCost));

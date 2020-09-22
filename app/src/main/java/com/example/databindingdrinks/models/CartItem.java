@@ -14,6 +14,13 @@ public class CartItem {
         this.quantity = quantity;
     }
 
+    public CartItem(Product product) {
+
+    }
+
+    public CartItem(int serial_number, int quantity) {
+    }
+
     public Product getProduct() {
         return product;
     }

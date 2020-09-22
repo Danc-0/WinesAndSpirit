@@ -81,11 +81,12 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
 
         // Retrieve the quantities of each item from the cart
         Products products = new Products();
+        Product product = new Product();
         List<CartItem> cartItems = new ArrayList<>();
         for (String serialNumber : serialNumbers) {
             int quantity = preferences.getInt(serialNumber, 0);
 
-            cartItems.add(new CartItem(products.PRODUCT_MAP.get(serialNumber), quantity));
+            cartItems.add(new CartItem(product.getSerial_number(), quantity));
         }
 
         CartViewModel viewModel = new CartViewModel();

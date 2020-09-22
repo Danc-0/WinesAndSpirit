@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 import com.example.databindingdrinks.databinding.FragmentViewCartBinding;
@@ -24,8 +26,13 @@ import com.example.databindingdrinks.models.CartViewModel;
 import com.example.databindingdrinks.models.Product;
 import com.example.databindingdrinks.util.PreferenceKeys;
 import com.example.databindingdrinks.util.Products;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import static com.example.databindingdrinks.BR.product;
 
 
 /**
@@ -35,6 +42,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class ViewCartFragment extends Fragment {
 
     private static final String TAG = "ViewCartFragment";
+    Random random = new Random();
+    int ProductSerial = random.nextInt();
 
     //data binding
     FragmentViewCartBinding mBinding;
@@ -43,7 +52,7 @@ public class ViewCartFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mBinding = FragmentViewCartBinding.inflate(inflater);
-        mBinding.setIMainActivity((IMainActivity)getActivity());
+        mBinding.setIMainActivity((IMainActivity) getActivity());
         mBinding.getIMainActivity().setCartVisibility(true);
 
         getShoppingCartList();
@@ -51,14 +60,15 @@ public class ViewCartFragment extends Fragment {
         return mBinding.getRoot();
     }
 
-    private void getShoppingCartList(){
+    private void getShoppingCartList() {
         ArrayList<Product> PRODUCTS = new ArrayList<>();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         Set<String> serialNumbers = preferences.getStringSet(PreferenceKeys.shopping_cart, new HashSet<String>());
 
         Products products = new Products();
+        Product product = new Product();
         List<CartItem> cartItems = new ArrayList<>();
-        for(String serialNumber : serialNumbers){
+        for (String serialNumber : serialNumbers) {
             int quantity = preferences.getInt(serialNumber, 0);
             cartItems.add(new CartItem(products.PRODUCT_MAP.get(serialNumber), quantity));
         }
@@ -67,7 +77,7 @@ public class ViewCartFragment extends Fragment {
         mBinding.setCartView(cartViewModel);
     }
 
-    public void updateCartItems(){
+    public void updateCartItems() {
         getShoppingCartList();
     }
 
